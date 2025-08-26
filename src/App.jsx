@@ -55,7 +55,7 @@ function Header({phoneLocal, phoneIntl}){
           </div>
           <div className="flex gap-2">
             <a href={"tel:+966" + phoneLocal.replace(/[^0-9]/g,"")} className="flex-1 text-center px-3 py-2 text-sm rounded-xl border border-white/20">اتصل الآن</a>
-            <a href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("أرغب بعرض سعر لهنجر او حدادة")} target="_blank" rel="noreferrer" className="flex-1 text-center px-3 py-2 text-sm rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold shadow">عرض سعر سريع</a>
+            <a href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("السلام عليكم, أحتاج عرض سعر")} target="_blank" rel="noreferrer" className="flex-1 text-center px-3 py-2 text-sm rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold shadow">عرض سعر سريع</a>
           </div>
         </div>
         
@@ -70,7 +70,7 @@ function Header({phoneLocal, phoneIntl}){
           </div>
           <div className="flex gap-2">
             <a href={"tel:+966" + phoneLocal.replace(/[^0-9]/g,"")} className="px-4 py-2 rounded-xl border border-white/20">اتصل الآن {phoneLocal}</a>
-            <a href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("أرغب بعرض سعر لهنجر او حدادة")} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold shadow">عرض سعر سريع</a>
+            <a href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("السلام عليكم, أحتاج عرض سعر")} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold shadow">عرض سعر سريع</a>
           </div>
         </div>
       </div>
@@ -185,7 +185,7 @@ function Promo(){
   return (
     <section className="py-6">
       <motion.div initial={{opacity:0,scale:.98}} whileInView={{opacity:1,scale:1}} viewport={{once:true}} className="rounded-2xl border border-amber-300/30 bg-amber-300/10 p-4 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-3">
-        <div className="text-base sm:text-lg text-center md:text-right">عرض افتتاحي, خصم 20% على مظلات وحديد الليزر عند الحجز هذا الأسبوع</div>
+        <div className="text-base sm:text-lg text-center md:text-right">عرض, خصم 20% على مظلات وحديد الليزر عند الحجز </div>
         <a href="#lead" className="px-4 py-3 sm:px-5 rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold text-sm sm:text-base whitespace-nowrap">احصل على الخصم</a>
       </motion.div>
     </section>
