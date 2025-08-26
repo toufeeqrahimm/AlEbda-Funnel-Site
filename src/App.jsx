@@ -49,7 +49,7 @@ function Header({phoneLocal, phoneIntl}){
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-[conic-gradient(from_180deg,#0ea5b7,#22c55e,#3b82f6)] grid place-items-center font-extrabold text-sm">إ</div>
             <div className="flex-1 min-w-0">
-              <h1 className="text-sm font-bold leading-tight">مؤسسة إبداع المستثمر للمقاولات العامة</h1>
+              <h1 className="text-sm font-bold leading-tight">الابداع المستمر للمقاولات</h1>
               <p className="text-xs text-slate-400 leading-tight">خدمه جده مكه و جميع مناطق المملكة</p>
             </div>
           </div>
@@ -64,7 +64,7 @@ function Header({phoneLocal, phoneIntl}){
           <div className="flex items-center gap-3">
             <div className="w-11 h-11 rounded-xl bg-[conic-gradient(from_180deg,#0ea5b7,#22c55e,#3b82f6)] grid place-items-center font-extrabold">إ</div>
             <div>
-              <h1 className="text-base font-bold">مؤسسة إبداع المستثمر للمقاولات العامة</h1>
+              <h1 className="text-base font-bold">الابداع المستمر للمقاولات</h1>
               <p className="text-xs text-slate-400">خدمه جده مكه و جميع مناطق المملكة</p>
             </div>
           </div>
@@ -84,13 +84,13 @@ function Hero({phoneLocal, phoneIntl}){
       <div className="grid md:grid-cols-[1.2fr_.8fr] gap-6 items-center">
         <div>
           <motion.div initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 text-slate-400 text-xs sm:text-sm">
-            <span>بحثك, مقاول هناجر جدة, وصل للمكان الصحيح</span>
+            <span>بحثك, مقاول هناجر جدة، وصل للمكان الصحيح</span>
           </motion.div>
           <motion.h2 initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{delay:.05}} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mt-3 leading-tight">
-            مقاول هناجر <span className="text-teal-300">جدة</span> وخدمة <span className="text-teal-300">مكة, الطائف</span>, ضمان حتى عشر سنوات
+            مقاول هناجر <span className="text-teal-300"></span> جدة،<span className="text-teal-300">مكة، الطائف</span>،ضمان حتى عشر سنوات
           </motion.h2>
           <motion.p initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{delay:.1}} className="text-slate-400 mt-2 text-sm sm:text-base leading-relaxed">
-            تصنيع وتركيب هناجر ومستودعات ومظلات وسواتر وبوابات حديد, زيارة ميدانية مجانية, مخطط هندسي سريع, تسليم على الموعد
+            تصنيع وتركيب هناجر ومستودعات ومظلات وسواتر وبوابات حديد، زيارة ميدانية مجانية, مخطط هندسي سريع، تسليم على الموعد
           </motion.p>
           <motion.div initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{delay:.15}} className="flex flex-wrap gap-2 mt-3">
             <span className="px-2 py-1 sm:px-3 sm:py-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 text-emerald-200 font-bold text-xs sm:text-sm">أكثر من 500 عميل</span>
@@ -372,7 +372,7 @@ function Footer(){
   return (
     <footer className="mt-8 border-t border-white/10 bg-[#0a0f1a]">
       <div className="w-[min(1200px,92vw)] mx-auto py-6 text-slate-400 text-sm">
-        © مؤسسة إبداع المستثمر للمقاولات العامة, جميع الحقوق محفوظة, جدة, مكة, الطائف
+        © الابداع المستمر للمقاولات, جميع الحقوق محفوظة, جدة, مكة, الطائف
       </div>
     </footer>
   )
@@ -382,7 +382,7 @@ function Schema({phoneLocal}){
   const json = {
     "@context":"https://schema.org",
     "@type":"Contractor",
-    name:"مؤسسة إبداع المستثمر للمقاولات العامة",
+    name:"الابداع المستمر للمقاولات",
     areaServed:["جدة","مكة","الطائف","بحرة","هدى الشام"],
     telephone:"+966" + phoneLocal.replace(/[^0-9]/g,""),
     image:"/sora-hero.jpg",
