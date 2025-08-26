@@ -50,7 +50,7 @@ function Header({phoneLocal, phoneIntl}){
             <div className="w-10 h-10 rounded-xl bg-[conic-gradient(from_180deg,#0ea5b7,#22c55e,#3b82f6)] grid place-items-center font-extrabold text-sm">إ</div>
             <div className="flex-1 min-w-0">
               <h1 className="text-sm font-bold leading-tight">مؤسسة إبداع المستثمر للمقاولات العامة</h1>
-              <p className="text-xs text-slate-400 leading-tight">خدمة جدة, مكة, الطائف, بحرة, هدى الشام</p>
+              <p className="text-xs text-slate-400 leading-tight">خدمه جده مكه و جميع مناطق المملكة</p>
             </div>
           </div>
           <div className="flex gap-2">
@@ -65,7 +65,7 @@ function Header({phoneLocal, phoneIntl}){
             <div className="w-11 h-11 rounded-xl bg-[conic-gradient(from_180deg,#0ea5b7,#22c55e,#3b82f6)] grid place-items-center font-extrabold">إ</div>
             <div>
               <h1 className="text-base font-bold">مؤسسة إبداع المستثمر للمقاولات العامة</h1>
-              <p className="text-xs text-slate-400">خدمة جدة, مكة, الطائف, بحرة, هدى الشام</p>
+              <p className="text-xs text-slate-400">خدمه جده مكه و جميع مناطق المملكة</p>
             </div>
           </div>
           <div className="flex gap-2">
