@@ -363,7 +363,7 @@ function StickyBar({phoneLocal, phoneIntl}){
   return (
     <div className="fixed inset-x-3 bottom-3 z-50 flex gap-2">
       <a href={"tel:+966" + phoneLocal.replace(/[^0-9]/g,"")} className="flex-1 text-center px-4 py-3 rounded-xl bg-emerald-400 text-[#06361c] font-extrabold">اتصال فوري</a>
-      <a href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("السلام عليكم, أحتاج عرض سعر لهنجر")} target="_blank" rel="noreferrer" className="flex-1 text-center px-4 py-3 rounded-xl bg-[#25d366] text-[#03210e] font-extrabold">واتساب</a>
+      <a href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("السلام عليكم, أحتاج عرض سعر ")} target="_blank" rel="noreferrer" className="flex-1 text-center px-4 py-3 rounded-xl bg-[#25d366] text-[#03210e] font-extrabold">واتساب</a>
     </div>
   )
 }
