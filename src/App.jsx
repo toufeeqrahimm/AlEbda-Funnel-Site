@@ -43,17 +43,35 @@ export default function App(){
 function Header({phoneLocal, phoneIntl}){
   return (
     <header className="sticky top-0 z-50 bg-[#0b1220cc] backdrop-blur border-b border-white/10">
-      <div className="w-[min(1200px,92vw)] mx-auto py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-xl bg-[conic-gradient(from_180deg,#0ea5b7,#22c55e,#3b82f6)] grid place-items-center font-extrabold">إ</div>
-          <div>
-            <h1 className="text-base font-bold">مؤسسة إبداع المستثمر للمقاولات العامة</h1>
-            <p className="text-xs text-slate-400">خدمة جدة, مكة, الطائف, بحرة, هدى الشام</p>
+      <div className="w-[min(1200px,92vw)] mx-auto py-3">
+        {/* Mobile Layout */}
+        <div className="flex flex-col gap-3 sm:hidden">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[conic-gradient(from_180deg,#0ea5b7,#22c55e,#3b82f6)] grid place-items-center font-extrabold text-sm">إ</div>
+            <div className="flex-1 min-w-0">
+              <h1 className="text-sm font-bold leading-tight">مؤسسة إبداع المستثمر للمقاولات العامة</h1>
+              <p className="text-xs text-slate-400 leading-tight">خدمة جدة, مكة, الطائف, بحرة, هدى الشام</p>
+            </div>
+          </div>
+          <div className="flex gap-2">
+            <a href={"tel:+966" + phoneLocal.replace(/[^0-9]/g,"")} className="flex-1 text-center px-3 py-2 text-sm rounded-xl border border-white/20">اتصل الآن</a>
+            <a href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("أرغب بعرض سعر لهنجر او حدادة")} target="_blank" rel="noreferrer" className="flex-1 text-center px-3 py-2 text-sm rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold shadow">عرض سعر سريع</a>
           </div>
         </div>
-        <div className="flex gap-2">
-          <a href={"tel:+966" + phoneLocal.replace(/[^0-9]/g,"")} className="px-4 py-2 rounded-xl border border-white/20">اتصل الآن {phoneLocal}</a>
-          <a href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("أرغب بعرض سعر لهنجر او حدادة")} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold shadow">عرض سعر سريع</a>
+        
+        {/* Desktop Layout */}
+        <div className="hidden sm:flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-11 h-11 rounded-xl bg-[conic-gradient(from_180deg,#0ea5b7,#22c55e,#3b82f6)] grid place-items-center font-extrabold">إ</div>
+            <div>
+              <h1 className="text-base font-bold">مؤسسة إبداع المستثمر للمقاولات العامة</h1>
+              <p className="text-xs text-slate-400">خدمة جدة, مكة, الطائف, بحرة, هدى الشام</p>
+            </div>
+          </div>
+          <div className="flex gap-2">
+            <a href={"tel:+966" + phoneLocal.replace(/[^0-9]/g,"")} className="px-4 py-2 rounded-xl border border-white/20">اتصل الآن {phoneLocal}</a>
+            <a href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("أرغب بعرض سعر لهنجر او حدادة")} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold shadow">عرض سعر سريع</a>
+          </div>
         </div>
       </div>
     </header>
@@ -62,37 +80,37 @@ function Header({phoneLocal, phoneIntl}){
 
 function Hero({phoneLocal, phoneIntl}){
   return (
-    <section className="py-8">
+    <section className="py-6 sm:py-8">
       <div className="grid md:grid-cols-[1.2fr_.8fr] gap-6 items-center">
         <div>
-          <motion.div initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 text-slate-400 text-sm">
+          <motion.div initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 text-slate-400 text-xs sm:text-sm">
             <span>بحثك, مقاول هناجر جدة, وصل للمكان الصحيح</span>
           </motion.div>
-          <motion.h2 initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{delay:.05}} className="text-4xl md:text-5xl font-extrabold mt-3">
+          <motion.h2 initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{delay:.05}} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mt-3 leading-tight">
             مقاول هناجر <span className="text-teal-300">جدة</span> وخدمة <span className="text-teal-300">مكة, الطائف</span>, ضمان حتى عشر سنوات
           </motion.h2>
-          <motion.p initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{delay:.1}} className="text-slate-400 mt-2">
+          <motion.p initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{delay:.1}} className="text-slate-400 mt-2 text-sm sm:text-base leading-relaxed">
             تصنيع وتركيب هناجر ومستودعات ومظلات وسواتر وبوابات حديد, زيارة ميدانية مجانية, مخطط هندسي سريع, تسليم على الموعد
           </motion.p>
           <motion.div initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{delay:.15}} className="flex flex-wrap gap-2 mt-3">
-            <span className="px-3 py-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 text-emerald-200 font-bold">أكثر من 500 عميل</span>
-            <span className="px-3 py-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 text-emerald-200 font-bold">خبرة 12 سنة</span>
-            <span className="px-3 py-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 text-emerald-200 font-bold">توريد مع التركيب</span>
+            <span className="px-2 py-1 sm:px-3 sm:py-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 text-emerald-200 font-bold text-xs sm:text-sm">أكثر من 500 عميل</span>
+            <span className="px-2 py-1 sm:px-3 sm:py-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 text-emerald-200 font-bold text-xs sm:text-sm">خبرة 12 سنة</span>
+            <span className="px-2 py-1 sm:px-3 sm:py-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 text-emerald-200 font-bold text-xs sm:text-sm">توريد مع التركيب</span>
           </motion.div>
-          <motion.div initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{delay:.2}} className="flex gap-2 mt-4">
-            <a className="px-5 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold shadow" href="#lead">سعر فوري</a>
-            <a className="px-5 py-3 rounded-xl border border-white/20" href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("أحتاج عرض سعر لهنجر او مظلات")} target="_blank" rel="noreferrer">تواصل واتساب</a>
+          <motion.div initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{delay:.2}} className="flex flex-col sm:flex-row gap-2 mt-4">
+            <a className="px-4 py-3 sm:px-5 text-center rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold shadow text-sm sm:text-base" href="#lead">سعر فوري</a>
+            <a className="px-4 py-3 sm:px-5 text-center rounded-xl border border-white/20 text-sm sm:text-base" href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("أحتاج عرض سعر لهنجر او مظلات")} target="_blank" rel="noreferrer">تواصل واتساب</a>
           </motion.div>
-          <ul className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4">
+          <ul className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 mt-4">
             {['هناجر ومستودعات','مظلات وسواتر','بوابات وحديد ليزر','شبوك وزراعة','برجولات وحدائق','صيانة ولحام'].map((t,i)=> (
-              <motion.li key={t} initial={{opacity:0, y:10}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*0.05}} className="p-3 rounded-xl bg-white/5 border border-white/10 text-sm">
+              <motion.li key={t} initial={{opacity:0, y:10}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*0.05}} className="p-2 sm:p-3 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm">
                 {t}
               </motion.li>
             ))}
           </ul>
         </div>
-        <motion.div initial={{scale:.95, opacity:0}} animate={{scale:1, opacity:1}} className="relative rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-          <img src="/sora-hero.jpg" alt="تركيب هنجر صناعي في جدة" className="w-full h-full object-cover"/>
+        <motion.div initial={{scale:.95, opacity:0}} animate={{scale:1, opacity:1}} className="relative rounded-2xl overflow-hidden border border-white/10 shadow-xl order-first md:order-last">
+          <img src="/sora-hero.jpg" alt="تركيب هنجر صناعي في جدة" className="w-full h-48 sm:h-64 md:h-full object-cover"/>
           <div className="absolute bottom-3 right-3 bg-slate-900/80 border border-white/10 px-3 py-2 rounded-xl text-sm"></div>
         </motion.div>
       </div>
@@ -109,10 +127,10 @@ function Benefits(){
   ]
   return (
     <section className="py-6">
-      <h3 className="text-2xl font-bold mb-3">مميزات الخدمة</h3>
+      <h3 className="text-xl sm:text-2xl font-bold mb-3">مميزات الخدمة</h3>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
         {items.map((t,i)=> (
-          <motion.div key={t} initial={{opacity:0,y:10}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*0.06}} className="p-4 rounded-xl bg-indigo-500/10 border border-indigo-400/30">
+          <motion.div key={t} initial={{opacity:0,y:10}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*0.06}} className="p-3 sm:p-4 rounded-xl bg-indigo-500/10 border border-indigo-400/30 text-sm sm:text-base">
             {t}
           </motion.div>
         ))}
@@ -123,15 +141,15 @@ function Benefits(){
 
 function Services({services}){
   return (
-    <section className="py-8">
-      <h3 className="text-2xl font-bold mb-4">خدماتنا</h3>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <section className="py-6 sm:py-8">
+      <h3 className="text-xl sm:text-2xl font-bold mb-4">خدماتنا</h3>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {services.map((s,i)=> (
           <motion.article key={s.title} initial={{opacity:0,y:12}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*0.07}} className="rounded-2xl overflow-hidden border border-white/10 bg-slate-900">
-            <img src={s.img} alt={s.title} className="w-full h-40 object-cover"/>
-            <div className="p-4">
-              <h4 className="font-bold">{s.title}</h4>
-              <p className="text-slate-400 text-sm mt-1">{s.text}</p>
+            <img src={s.img} alt={s.title} className="w-full h-32 sm:h-40 object-cover"/>
+            <div className="p-3 sm:p-4">
+              <h4 className="font-bold text-sm sm:text-base">{s.title}</h4>
+              <p className="text-slate-400 text-xs sm:text-sm mt-1 leading-relaxed">{s.text}</p>
             </div>
           </motion.article>
         ))}
@@ -150,12 +168,12 @@ function Process(){
   ]
   return (
     <section className="py-6">
-      <h3 className="text-2xl font-bold mb-3">طريقة العمل</h3>
-      <div className="grid sm:grid-cols-3 lg:grid-cols-5 gap-3">
+      <h3 className="text-xl sm:text-2xl font-bold mb-3">طريقة العمل</h3>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
         {steps.map((t,i)=>(
-          <motion.div key={t} initial={{opacity:0, y:10}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*0.05}} className="p-4 text-center rounded-xl border border-white/10 bg-slate-900">
-            <div className="text-3xl font-extrabold text-emerald-300 mb-2">{i+1}</div>
-            <div>{t}</div>
+          <motion.div key={t} initial={{opacity:0, y:10}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*0.05}} className="p-3 sm:p-4 text-center rounded-xl border border-white/10 bg-slate-900">
+            <div className="text-2xl sm:text-3xl font-extrabold text-emerald-300 mb-2">{i+1}</div>
+            <div className="text-xs sm:text-sm leading-tight">{t}</div>
           </motion.div>
         ))}
       </div>
@@ -166,9 +184,9 @@ function Process(){
 function Promo(){
   return (
     <section className="py-6">
-      <motion.div initial={{opacity:0,scale:.98}} whileInView={{opacity:1,scale:1}} viewport={{once:true}} className="rounded-2xl border border-amber-300/30 bg-amber-300/10 p-6 flex flex-col md:flex-row items-center justify-between gap-3">
-        <div className="text-lg">عرض افتتاحي, خصم 20% على مظلات وحديد الليزر عند الحجز هذا الأسبوع</div>
-        <a href="#lead" className="px-5 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold">احصل على الخصم</a>
+      <motion.div initial={{opacity:0,scale:.98}} whileInView={{opacity:1,scale:1}} viewport={{once:true}} className="rounded-2xl border border-amber-300/30 bg-amber-300/10 p-4 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-3">
+        <div className="text-base sm:text-lg text-center md:text-right">عرض افتتاحي, خصم 20% على مظلات وحديد الليزر عند الحجز هذا الأسبوع</div>
+        <a href="#lead" className="px-4 py-3 sm:px-5 rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold text-sm sm:text-base whitespace-nowrap">احصل على الخصم</a>
       </motion.div>
     </section>
   )
@@ -192,8 +210,8 @@ function Gallery({items}){
 
 function Pricing(){
   const rows = [
-    {title:"هنجر اقتصادي", price:"ابتداء من 50 ريال للمتر", desc:"حديد مجلفن, سماكات مناسبة للمستودعات الخفيفة, عوازل اختيارية"},
-    {title:"هنجر تجاري", price:"ابتداء من 50 ريال للمتر", desc:"مقومات أعلى, أرضية خرسانية, فتحات تهوية, خدمة سريعة"},
+    {title:"هنجر اقتصادي", price:"سعر جيد خاص", desc:"حديد مجلفن, سماكات مناسبة للمستودعات الخفيفة, عوازل اختيارية"},
+    {title:"هنجر تجاري", price:"سعر جيد خاص", desc:"مقومات أعلى, أرضية خرسانية, فتحات تهوية, خدمة سريعة"},
     {title:"هنجر صناعي", price:"سعر مخصص", desc:"تصميم حسب الحمل والمساحة مع أبواب رصيف وممرات شاحنات"},
   ]
   return (
@@ -280,14 +298,7 @@ function Lead({phoneIntl, phoneLocal}){
             </div>
           )}
           <div className="flex gap-2">
-            <button 
-              type="submit" 
-              disabled={isSubmitting}
-              className="px-5 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? "جاري الإرسال..." : "إرسال الطلب"}
-            </button>
-            <a className="px-5 py-3 rounded-xl border border-white/20" href={waUrl} target="_blank" rel="noreferrer">طلب سريع عبر واتساب</a>
+            <a className="flex-1 px-5 py-3 text-center rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold" href={waUrl} target="_blank" rel="noreferrer">طلب عرض سعر عبر واتساب</a>
           </div>
           <p className="text-xs text-slate-500">عند الإرسال سيتم حفظ البيانات وفتح واتساب مع ملخص البيانات</p>
         </motion.form>
