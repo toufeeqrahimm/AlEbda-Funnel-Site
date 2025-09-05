@@ -54,8 +54,18 @@ function Header({phoneLocal, phoneIntl}){
             </div>
           </div>
           <div className="flex gap-2">
-            <a href={"tel:+966" + phoneLocal.replace(/[^0-9]/g,"")} className="flex-1 text-center px-3 py-2 text-sm rounded-xl border border-white/20">اتصل الآن</a>
-            <a href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("السلام عليكم, أحتاج عرض سعر")} target="_blank" rel="noreferrer" className="flex-1 text-center px-3 py-2 text-sm rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold shadow">عرض سعر سريع</a>
+            <a
+              href={"tel:+966" + phoneLocal.replace(/[^0-9]/g,"")}
+              className="flex-1 text-center px-3 py-2 text-sm rounded-xl border border-white/20"
+              onClick={(e)=>{ if (window.gtag_report_conversion) { e.preventDefault(); window.gtag_report_conversion(e.currentTarget.href); } }}
+            >اتصل الآن</a>
+            <a
+              href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("السلام عليكم, أحتاج عرض سعر")}
+              target="_blank"
+              rel="noreferrer"
+              className="flex-1 text-center px-3 py-2 text-sm rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold shadow"
+              onClick={()=>{ if (window.gtag_report_conversion) { window.gtag_report_conversion(); } }}
+            >عرض سعر سريع</a>
           </div>
         </div>
         
@@ -69,8 +79,18 @@ function Header({phoneLocal, phoneIntl}){
             </div>
           </div>
           <div className="flex gap-2">
-            <a href={"tel:+966" + phoneLocal.replace(/[^0-9]/g,"")} className="px-4 py-2 rounded-xl border border-white/20">اتصل الآن {phoneLocal}</a>
-            <a href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("السلام عليكم, أحتاج عرض سعر")} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold shadow">عرض سعر سريع</a>
+            <a
+              href={"tel:+966" + phoneLocal.replace(/[^0-9]/g,"")}
+              className="px-4 py-2 rounded-xl border border-white/20"
+              onClick={(e)=>{ if (window.gtag_report_conversion) { e.preventDefault(); window.gtag_report_conversion(e.currentTarget.href); } }}
+            >اتصل الآن {phoneLocal}</a>
+            <a
+              href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("السلام عليكم, أحتاج عرض سعر")}
+              target="_blank"
+              rel="noreferrer"
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold shadow"
+              onClick={()=>{ if (window.gtag_report_conversion) { window.gtag_report_conversion(); } }}
+            >عرض سعر سريع</a>
           </div>
         </div>
       </div>
@@ -99,7 +119,13 @@ function Hero({phoneLocal, phoneIntl}){
           </motion.div>
           <motion.div initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{delay:.2}} className="flex flex-col sm:flex-row gap-2 mt-4">
             <a className="px-4 py-3 sm:px-5 text-center rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold shadow text-sm sm:text-base" href="#lead">سعر فوري</a>
-            <a className="px-4 py-3 sm:px-5 text-center rounded-xl border border-white/20 text-sm sm:text-base" href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("أحتاج عرض سعر لهنجر او مظلات")} target="_blank" rel="noreferrer">تواصل واتساب</a>
+            <a
+              className="px-4 py-3 sm:px-5 text-center rounded-xl border border-white/20 text-sm sm:text-base"
+              href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("أحتاج عرض سعر لهنجر او مظلات")}
+              target="_blank"
+              rel="noreferrer"
+              onClick={()=>{ if (window.gtag_report_conversion) { window.gtag_report_conversion(); } }}
+            >تواصل واتساب</a>
           </motion.div>
           <ul className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 mt-4">
             {['هناجر ومستودعات','مظلات وسواتر','بوابات وحديد ليزر','شبوك وزراعة','برجولات وحدائق','صيانة ولحام'].map((t,i)=> (
@@ -261,7 +287,8 @@ function Lead({phoneIntl, phoneLocal}){
         setSubmitMessage("✅ تم حفظ طلبك بنجاح! سيتم التواصل معك قريباً")
         // Reset form after successful submission
         setData({name:"", phone:"", city:"", type:"", area:"", when:"عاجل", msg:""})
-        // Also open WhatsApp
+        // Fire Ads conversion and open WhatsApp
+        if (window.gtag_report_conversion) { window.gtag_report_conversion(); }
         window.open(waUrl, '_blank')
       } else {
         setSubmitMessage("❌ " + result.message)
@@ -298,7 +325,13 @@ function Lead({phoneIntl, phoneLocal}){
             </div>
           )}
           <div className="flex gap-2">
-            <a className="flex-1 px-5 py-3 text-center rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold" href={waUrl} target="_blank" rel="noreferrer">طلب عرض سعر عبر واتساب</a>
+            <a
+              className="flex-1 px-5 py-3 text-center rounded-xl bg-gradient-to-r from-amber-400 to-emerald-400 text-[#0b1220] font-extrabold"
+              href={waUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={()=>{ if (window.gtag_report_conversion) { window.gtag_report_conversion(); } }}
+            >طلب عرض سعر عبر واتساب</a>
           </div>
           <p className="text-xs text-slate-500">عند الإرسال سيتم حفظ البيانات وفتح واتساب مع ملخص البيانات</p>
         </motion.form>
@@ -362,8 +395,18 @@ function FAQ(){
 function StickyBar({phoneLocal, phoneIntl}){
   return (
     <div className="fixed inset-x-3 bottom-3 z-50 flex gap-2">
-      <a href={"tel:+966" + phoneLocal.replace(/[^0-9]/g,"")} className="flex-1 text-center px-4 py-3 rounded-xl bg-emerald-400 text-[#06361c] font-extrabold">اتصال فوري</a>
-      <a href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("السلام عليكم, أحتاج عرض سعر ")} target="_blank" rel="noreferrer" className="flex-1 text-center px-4 py-3 rounded-xl bg-[#25d366] text-[#03210e] font-extrabold">واتساب</a>
+      <a
+        href={"tel:+966" + phoneLocal.replace(/[^0-9]/g,"")}
+        className="flex-1 text-center px-4 py-3 rounded-xl bg-emerald-400 text-[#06361c] font-extrabold"
+        onClick={(e)=>{ if (window.gtag_report_conversion) { e.preventDefault(); window.gtag_report_conversion(e.currentTarget.href); } }}
+      >اتصال فوري</a>
+      <a
+        href={"https://wa.me/" + phoneIntl + "?text=" + encodeURIComponent("السلام عليكم, أحتاج عرض سعر ")}
+        target="_blank"
+        rel="noreferrer"
+        className="flex-1 text-center px-4 py-3 rounded-xl bg-[#25d366] text-[#03210e] font-extrabold"
+        onClick={()=>{ if (window.gtag_report_conversion) { window.gtag_report_conversion(); } }}
+      >واتساب</a>
     </div>
   )
 }

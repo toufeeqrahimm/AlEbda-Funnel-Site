@@ -18,6 +18,31 @@
 
       gtag('config', 'AW-17507063852');
     </script>
+    <!-- Event snippet for Purchase conversion page -->
+    <script>
+      function gtag_report_conversion(url, transactionId) {
+        try {
+          var callback = function () {
+            if (typeof(url) !== 'undefined' && url) {
+              window.location = url;
+            }
+          };
+          // Generate a lightweight transaction ID if not provided
+          var txid = transactionId || (Date.now().toString(36) + Math.random().toString(36).slice(2, 10));
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17507063852/2RyqCM7hp5MbEKywgpxB',
+            'transaction_id': txid,
+            'event_callback': callback
+          });
+        } catch (e) {
+          // Fail open: on any error, proceed with navigation
+          if (typeof url !== 'undefined' && url) {
+            window.location = url;
+          }
+        }
+        return false;
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
